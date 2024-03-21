@@ -21,8 +21,13 @@
   	SELECT     MENU_ID, MENU_NAME, MENU_SEQ
   	 FROM      MENUS
   	 ORDER BY  MENU_SEQ ASC
-  
   </select>
+  
+  <delete id="deleteMenu">
+  	 DELETE FROM MENUS
+  	 WHERE MENU_ID = #{menu_id}
+  	 
+  </delete>
   
 </mapper>
 

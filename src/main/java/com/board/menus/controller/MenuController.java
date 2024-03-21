@@ -46,19 +46,34 @@ public class MenuController {
 	//public   String   write( 
 	// 		String menu_id, String menu_name, int menu_seq) { 
 	 // 인식안됨(error)     menu_id 를 찾을 수 없다
-	public   String   write( MenuVo  menuVo ) {   // Vo 로 작업해야한다
+	public   String   write( MenuVo  menuVo, Model model ) {   // Vo 로 작업해야한다
 		// 넘어온 데이터를 db 에 저장하고		
 		menuMapper.insertMenu( menuVo );
 		// menuMapper.insertMenu(menu_id, menu_name, menu_seq); // error
+		return "redirect:/Menus/List";
 		
-		return "menus/list";    // menus/list.jsp  
+		//List<MenuVo> menuList = menuMapper.getMenuList();
+		//model.addAttribute("menuList", menuList);
+		
+		//return "menus/list";    // menus/list.jsp  
 	}
 	
+	// 메뉴삭제 /Menuse/Delete?menu_id=menu03
+	@RequestMapping("/Delete")
+	public String delete(MenuVo menuVo,Model model) {
+		
+		//MENU03을 삭제
+		menuMapper.deleteMenu(menuVo);
+		
+		//다시 조회 해서 model에 담는다
+		//List<MenuVo> menuList = menuMapper.getMenuList();
+		//model.addAttribute("menuList", menuList);
+		// 이동할 파일
+		//return "menus/list";
+		
+		//위처럼 할 필요 없이 그냥 아래처럼 하면 간단하다.		
+		return "redirect:/Menus/List";
+		
+	}
 	
 }
-
-
-
-
-
-
