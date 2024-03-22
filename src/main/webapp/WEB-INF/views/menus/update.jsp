@@ -36,7 +36,7 @@
 	<table>
 	 <tr>
 	   <td>메뉴 아이디</td>
-	   <td><input type="text" name="menu_id" value=" ${menu.menu_id}" readonly/></td>
+	   <td><input type="text" name="menu_id" value="${menu.menu_id}" readonly/></td>
 	 </tr>
 	 <tr>
 	   <td>메뉴 이름</td>
