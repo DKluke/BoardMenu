@@ -20,8 +20,16 @@ public interface MenuMapper {
 	void deleteMenu(MenuVo menuVo);
 
 	void insertMenuByName(MenuVo menuVo);
+
+	MenuVo getMenu(String menu_id);
+
+	void updateMenu(MenuVo menuVo);
 	
-	
+	/*     UPDATE   MENUS
+     SET	  MENU_NAME = #{menu_name},
+     		  MENU_SEQ  = #{menu_seq}
+     WHERE    MENU_ID  = #{menu_id}
+     */
 	
 }
 

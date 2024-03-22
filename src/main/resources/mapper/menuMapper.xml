@@ -36,11 +36,25 @@
   	 ORDER BY  MENU_SEQ ASC
   </select>
   
+  <select id = "getMenu" resultType="com.board.menus.domain.MenuVo">
+  	
+  	SELECT     MENU_ID, MENU_NAME, MENU_SEQ
+  	FROM       MENUS
+	WHERE 	   MENU_ID = #{menu_id}  	
+  </select>
+  
   <delete id="deleteMenu">
   	 DELETE FROM MENUS
   	 WHERE MENU_ID = #{menu_id}
-  	 
   </delete>
+  
+  <update id="updateMenu">
+
+  	UPDATE   MENUS
+  	SET      MENU_NAME =  #{ menu_name  },
+  	         MENU_SEQ  =  #{ menu_seq   } 
+  	WHERE    MENU_ID   =  #{ menu_id    } 
+  </update>
   
 </mapper>
 
